@@ -48,8 +48,8 @@ public class DemoServlet extends HttpServlet {
 	// If running locally complete the variables below
 	// with the information in VCAP_SERVICES
 	private String baseURL = "https://gateway.watsonplatform.net/personality-insights/api";
-	private String username = "8d214dfb-21f1-4c5b-8e29-c4fc83aa42ad";
-	private String password = "FkOxQ42vTnqH";
+	private String username = "d8dbdbd3-d29c-45b1-be25-6323efecef75";
+	private String password = "Px6sRFxjN0mH";
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
