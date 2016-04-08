@@ -111,8 +111,8 @@ footer {
 									<textarea rows="12" required="true" name="text"
 										placeholder="<fmt:message key="application.input.placeHolder"/>"
 										class="content form-control" id="txt_Content1"></textarea>
-									<div class="text-right inputFootnote">
-										<span class="wordsCount"></span> <span class="small"></span>
+									<div class="text-right inputFootnote" id="wordCount1">
+										<span class="wordsCount" id="wordCountTxt1"></span> <span class="small"></span>
 										<fmt:message key="application.label.words" />
 										</span>
 									</div>
@@ -125,8 +125,7 @@ footer {
 							</div>
 							<div class="form-group row buttons-container">
 								<div class="col-lg-4 col-xs-4">
-									<button type="button" class="btn btn-block clear-btn"
-										id="btn_Clear1">
+									<button type="button" class="btn btn-block clear-btn" id="btn_Clear1">
 										<fmt:message key="application.input.clear" />
 									</button>
 								</div>
@@ -246,9 +245,9 @@ footer {
 								<div style="padding: 0px;" class="col-lg-12 col-xs-12">
 									<textarea rows="12" required="true" name="text"
 										placeholder="<fmt:message key="application.input.placeHolder"/>"
-										class="content form-control"></textarea>
-									<div class="text-right inputFootnote">
-										<span class="wordsCount"></span> <span class="small"></span>
+										class="content form-control" id="txt_Content2"></textarea>
+									<div class="text-right inputFootnote" id="wordCount2">
+										<span class="wordsCount" id="wordCountTxt2"></span> <span class="small"></span>
 										<fmt:message key="application.label.words" />
 										</span>
 									</div>
@@ -261,7 +260,7 @@ footer {
 							</div>
 							<div class="form-group row buttons-container">
 								<div class="col-lg-4 col-xs-4">
-									<button type="button" class="btn btn-block clear-btn">
+									<button type="button" class="btn btn-block clear-btn" id="btn_Clear2">
 										<fmt:message key="application.input.clear" />
 									</button>
 								</div>

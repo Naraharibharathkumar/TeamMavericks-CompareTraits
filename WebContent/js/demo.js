@@ -19,14 +19,16 @@
 $(document).ready(function() {
 
   var MIN_WORDS = 100;
-	
+  
   var widgetId = 'vizcontainer', // Must match the ID in index.jade
     widgetWidth = 700, widgetHeight = 700, // Default width and height
     personImageUrl = 'images/app.png', // Can be blank
     language = 'en'; // language selection
 
   // Jquery variables
-  var $content = $('.content'),
+//  var $content = $('.content'),
+  var $content1 = $('#txt_Content1'),
+      $content2 = $('#txt_Content2'),
     $loading   = $('.loading'),
     $error     = $('.error'),
     $errorMsg  = $('.errorMsg'),
@@ -36,24 +38,43 @@ $(document).ready(function() {
   /**
    * Clear the "textArea"
    */
-  $('.clear-btn').click(function(){
-    $('.clear-btn').blur();
-    $content.val('');
-    updateWordsCount();
-  });
+//  $('.clear-btn').click(function(){
+//    $('.clear-btn').blur();
+//    $content.val('');
+//    updateWordsCount();
+//  });
+  
+  $('#btn_Clear1').click(function(){
+      $('#btn_Clear1').blur();
+      $content1.val('');
+      updateWordsCountFor1();
+    });
+  
+  $('#btn_Clear2').click(function(){
+      $('#btn_Clear2').blur();
+      $content2.val('');
+      updateWordsCountFor2();
+    });
 
   /**
    * Update words count on change
    */
-  $content.change(updateWordsCount);
-
+//  $content.change(updateWordsCount);
+  $content1.change(updateWordsCountFor1);
+  $content2.change(updateWordsCountFor2);
   /**
    * Update words count on copy/past
    */
-  $content.bind('paste', function() {
-    setTimeout(updateWordsCount, 100);
+//  $content.bind('paste', function() {
+//    setTimeout(updateWordsCount, 100);
+//  });
+  $content1.bind('paste', function() {
+    setTimeout(updateWordsCountFor1, 100);
   });
 
+  $content2.bind('paste', function() {
+    setTimeout(updateWordsCountFor2, 100);
+  });
   /**
    * 1. Create the request
    * 2. Call the API
@@ -70,7 +91,7 @@ $(document).ready(function() {
     $.ajax({
       type: 'POST',
       data: {
-        text: $content.val(),
+        text: $content1.val(), //here, we need to add another ajax call. I use first person text to make things work for now -crystal
         language: language
       },
       url: 'demo',
@@ -288,24 +309,42 @@ function showVizualization(theProfile) {
     return arr;
   }
 
-  function updateWordsCount() {
-    var text = $content.val();
-    var wordsCount = text.match(/\S+/g) ? text.match(/\S+/g).length : 0;
-    $('.inputFootnote').css('color',wordsCount < MIN_WORDS ? 'red' : 'gray');
-    $('.wordsCount').text(wordsCount);
-  }
+//  function updateWordsCount() {
+//    var text = $content.val();
+//    var wordsCount = text.match(/\S+/g) ? text.match(/\S+/g).length : 0;
+//    $('.inputFootnote').css('color',wordsCount < MIN_WORDS ? 'red' : 'gray');
+//    $('.wordsCount').text(wordsCount);
+//  }
+  
+  function updateWordsCountFor1() {
+      var text = $content1.val();
+      var wordsCount = text.match(/\S+/g) ? text.match(/\S+/g).length : 0;
+      $('#wordCount1').css('color',wordsCount < MIN_WORDS ? 'red' : 'gray');
+      $('#wordCountTxt1').text(wordsCount);
+    }
+  
+  function updateWordsCountFor2() {
+      var text = $content2.val();
+      var wordsCount = text.match(/\S+/g) ? text.match(/\S+/g).length : 0;
+      $('#wordCount2').css('color',wordsCount < MIN_WORDS ? 'red' : 'gray');
+      $('#wordCountTxt2').text(wordsCount);
+    }
 
   function onSampleTextChange() {
     var isEnglish = $('#english_radio').is(':checked');
     language = isEnglish ? 'en' : 'es';
 
     $.get('text/' + language + '.txt').done(function(text) {
-      $content.val(text);
-      updateWordsCount();
+//      $content.val(text);
+      $content1.val(text);
+      $content2.val(text);
+//      updateWordsCount();
+      updateWordsCountFor1();
+      updateWordsCountFor2();
     });
   }
-
   onSampleTextChange();
-  $content.keyup(updateWordsCount);
+  $content1.keyup(updateWordsCountFor1);
+  $content2.keyup(updateWordsCountFor2);
   $('.sample-radio').change(onSampleTextChange);
 });
