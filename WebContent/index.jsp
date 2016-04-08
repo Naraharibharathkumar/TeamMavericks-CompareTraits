@@ -6,7 +6,7 @@
 	value="${not empty param.language ? param.language : not empty language ? language : pageContext.request.locale}"
 	scope="session" />
 <fmt:setLocale value="${language}" />
-<fmt:setBundle basename="com.ibm.cloudoe.samples.i18n.messages" />
+<fmt:setBundle basename="com.comparetraits.message.messages" />
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -125,7 +125,8 @@ footer {
 							</div>
 							<div class="form-group row buttons-container">
 								<div class="col-lg-4 col-xs-4">
-									<button type="button" class="btn btn-block clear-btn" id="btn_Clear1">
+									<button type="button" class="btn btn-block clear-btn"
+										id="btn_Clear1">
 										<fmt:message key="application.input.clear" />
 									</button>
 								</div>
@@ -211,8 +212,8 @@ footer {
 
 			<div class="col-sm-2">
 				<label class="col-lg-12 col-md-6 col-xs-6 control-label"><fmt:message
-						key="application.label.chooseLanguage" />:</label>
-				</br></br>
+						key="application.label.chooseLanguage" />:</label> </br>
+				</br>
 				<div class="col-lg-12 col-md-6 col-xs-6 sample-radio-list">
 					<div class="sample-radio-container">
 						<label><input id="english_radio" type="radio"
@@ -231,9 +232,9 @@ footer {
 					</button>
 				</div>
 				<div style="display: none;"
-							class="form-group row loading text-center loading">
-							<h2>&nbsp;</h2>
-							<img src="images/watson.gif">
+					class="form-group row loading text-center loading">
+					<h2>&nbsp;</h2>
+					<img src="images/watson.gif">
 				</div>
 			</div>
 
@@ -353,7 +354,7 @@ footer {
 	<script type="text/javascript" src="js/i18n.js"></script>
 	<script type="text/javascript" src="js/textsummary.js"></script>
 	<script type="text/javascript">
-        textSummary.init('json');
-</script>
+		textSummary.init('json');
+	</script>
 </body>
 </html>

@@ -10,7 +10,7 @@
 	</welcome-file-list>
 	<servlet>
 		<servlet-name>Application Servlet</servlet-name>
-		<servlet-class>com.ibm.cloudoe.samples.DemoServlet</servlet-class>
+		<servlet-class>com.comparetraits.servlet.DemoServlet</servlet-class>
 		<load-on-startup>1</load-on-startup>
 	</servlet>
 	<servlet-mapping>
