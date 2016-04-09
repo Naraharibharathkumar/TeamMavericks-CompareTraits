@@ -60,13 +60,13 @@ footer {
 <body>
 	<div class="row service-container">
 		<div class="col-lg-12 service-header">
-			<div class="row top-nav navbar-fixed-top">
+<!-- 			<div class="row top-nav navbar-fixed-top">
 				<div class="container">
 					<h3 class="heading left">
 						<span class="top-nav--logo-wdc">TeamNumber#3</span>
 					</h3>
 				</div>
-			</div>
+			</div> -->
 			<div class="row header">
 				<div class="container">
 					<div
@@ -86,14 +86,12 @@ footer {
 			</div>
 		</div>
 	</div>
-	<div class="row service-container">
+	<div style="padding: 20px;" class="row service-container">
 		<h2>
 			<fmt:message key="application.input.title" />
 		</h2>
 		<p>
 			<fmt:message key="application.warning.minimumRecommendedWarning" />
-		</p>
-		<p>
 			<fmt:message key="application.warning.selfReflectiveText" />
 		</p>
 	</div>
@@ -146,7 +144,7 @@ footer {
 								*
 							</h2>
 							<div class="well">
-								<div class="summary-div"></div>
+								<div class="summary-div" id="txt_Summary1"></div>
 								<div style="color: gray" class="text-right">
 									<em class="small">*<fmt:message
 											key="application.label.comparedFootnote" /></em>
@@ -281,7 +279,7 @@ footer {
 								*
 							</h2>
 							<div class="well">
-								<div class="summary-div"></div>
+								<div class="summary-div" id="txt_Summary2"></div>
 								<div style="color: gray" class="text-right">
 									<em class="small">*<fmt:message
 											key="application.label.comparedFootnote" /></em>

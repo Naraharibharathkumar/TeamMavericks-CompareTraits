@@ -15,9 +15,7 @@
  */
 
 'use strict';
-
 $(document).ready(function() {
-
   var MIN_WORDS = 100;
   
   var widgetId = 'vizcontainer', // Must match the ID in index.jade
@@ -82,7 +80,6 @@ $(document).ready(function() {
    */
   $('.analysis-btn').click(function(){
     $('.analysis-btn').blur();
-
     $loading.show();
     $error.hide();
     $traits.hide();
@@ -102,6 +99,7 @@ $(document).ready(function() {
         if (response.error) {
           showError(response.error);
         } else {
+        	console.log(response);
           $results.show();
           showTraits(response);
           showTextSummary(response);
