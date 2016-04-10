@@ -37,11 +37,6 @@ $(document).ready(function() {
   /**
    * Clear the "textArea"
    */
-//  $('.clear-btn').click(function(){
-//    $('.clear-btn').blur();
-//    $content.val('');
-//    updateWordsCount();
-//  });
   
   $('#btn_Clear1').click(function(){
       $('#btn_Clear1').blur();
@@ -58,15 +53,11 @@ $(document).ready(function() {
   /**
    * Update words count on change
    */
-//  $content.change(updateWordsCount);
   $content1.change(updateWordsCountFor1);
   $content2.change(updateWordsCountFor2);
   /**
    * Update words count on copy/past
    */
-//  $content.bind('paste', function() {
-//    setTimeout(updateWordsCount, 100);
-//  });
   $content1.bind('paste', function() {
     setTimeout(updateWordsCountFor1, 100);
   });
@@ -89,7 +80,7 @@ $(document).ready(function() {
     $.ajax({
       type: 'POST',
       data: {
-        text: $content1.val(), //here, we need to add another ajax call. I use first person text to make things work for now -crystal
+        text: $content1.val(),
         language: language
       },
       url: 'demo',
@@ -122,7 +113,7 @@ $(document).ready(function() {
     $.ajax({
         type: 'POST',
         data: {
-          text: $content2.val(), //here, we need to add another ajax call. I use first person text to make things work for now -crystal
+          text: $content2.val(),
           language: language
         },
         url: 'demo',
@@ -263,7 +254,6 @@ $(document).ready(function() {
   function showTextSummary(data,order) {
 	    console.log('showTextSummary()');
 	    var paragraphs = textSummary.assemble(data.tree);
-	    //var div = $('.summary-div');
 	    var div = $('#summary'+order);
 	    $('#outputWordCountMessage'+order).text(data.word_count_message ? '**' + data.word_count_message + '.' : ''); 
 	    div.empty();
@@ -386,13 +376,6 @@ function showVizualization(theProfile, widgetId) {
     f(tree, 0);
     return arr;
   }
-
-//  function updateWordsCount() {
-//    var text = $content.val();
-//    var wordsCount = text.match(/\S+/g) ? text.match(/\S+/g).length : 0;
-//    $('.inputFootnote').css('color',wordsCount < MIN_WORDS ? 'red' : 'gray');
-//    $('.wordsCount').text(wordsCount);
-//  }
   
   function updateWordsCountFor1() {
       var text = $content1.val();
@@ -413,10 +396,8 @@ function showVizualization(theProfile, widgetId) {
     language = isEnglish ? 'en' : 'es';
 
     $.get('text/' + language + '.txt').done(function(text) {
-//      $content.val(text);
       $content1.val(text);
       $content2.val(text);
-//      updateWordsCount();
       updateWordsCountFor1();
       updateWordsCountFor2();
     });
