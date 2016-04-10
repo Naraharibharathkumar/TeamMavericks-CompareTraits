@@ -143,22 +143,22 @@ footer {
 							</div>
 						</div>
 						<div style="display: none;" class="results">
-							<!-- 
+						
 							<h2>
 								<fmt:message key="application.label.yourPersonality" />
 								*
 							</h2>
 							<div class="well">
-								<div class="summary-div"></div>
+								<div class="summary-div" id="summary1"></div>
 								<div style="color: gray" class="text-right">
 									<em class="small">*<fmt:message
 											key="application.label.comparedFootnote" /></em>
 								</div>
 								<div style="color: gray" class="text-right">
-									<em class="small outputWordCountMessage"></em>
+									<em class="small outputWordCountMessage" id="outputWordCountMessage1"></em>
 								</div>
 							</div>
-							-->
+						
 						</div>
 					</div>
 					<div style="display: none;" class="results">
@@ -281,22 +281,22 @@ footer {
 							</div>
 						</div>
 						<div style="display: none;" class="results">
-							<!-- 
+							
 							<h2>
 								<fmt:message key="application.label.yourPersonality" />
 								*
 							</h2>
 							<div class="well">
-								<div class="summary-div1"></div>
+								<div class="summary-div1" id="summary2"></div>
 								<div style="color: gray" class="text-right">
 									<em class="small">*<fmt:message
 											key="application.label.comparedFootnote" /></em>
 								</div>
 								<div style="color: gray" class="text-right">
-									<em class="small outputWordCountMessage"></em>
+									<em class="small outputWordCountMessage" id="outputWordCountMessage2"></em>
 								</div>
 							</div>
-							 -->
+							
 						</div>
 					</div>
 					<div style="display: none;" class="results">

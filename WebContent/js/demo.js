@@ -103,7 +103,7 @@ $(document).ready(function() {
         	console.log(response);
           $results.show();
           showTraits(response);
-          //showTextSummary(response);
+          showTextSummary(response,1);
           showVizualization(response, widgetId1);
         }
 
@@ -136,7 +136,7 @@ $(document).ready(function() {
           	console.log(response);
             $results.show();
             showTraits1(response);
-            //showTextSummary(response);
+            showTextSummary(response,2);
             showVizualization(response, widgetId2);
           }
 
@@ -260,11 +260,12 @@ $(document).ready(function() {
    * Construct a text representation for big5 traits crossing, facets and
    * values.
    */
-  function showTextSummary(data) {
+  function showTextSummary(data,order) {
 	    console.log('showTextSummary()');
 	    var paragraphs = textSummary.assemble(data.tree);
-	    var div = $('.summary-div');
-	    $('.outputWordCountMessage').text(data.word_count_message ? '**' + data.word_count_message + '.' : ''); 
+	    //var div = $('.summary-div');
+	    var div = $('#summary'+order);
+	    $('#outputWordCountMessage'+order).text(data.word_count_message ? '**' + data.word_count_message + '.' : ''); 
 	    div.empty();
 	    paragraphs.forEach(function(sentences) {
 	      $('<p></p>').text(sentences.join(' ')).appendTo(div);
