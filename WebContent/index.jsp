@@ -8,7 +8,7 @@
 <fmt:setLocale value="${language}" />
 <fmt:setBundle basename="com.comparetraits.message.messages" />
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<html  lang="${language}">
 <head>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=egde">
@@ -60,13 +60,15 @@ footer {
 <body>
 	<div class="row service-container">
 		<div class="col-lg-12 service-header">
-<!-- 			<div class="row top-nav navbar-fixed-top">
+			<!-- 			
+				<div class="row top-nav navbar-fixed-top">
 				<div class="container">
 					<h3 class="heading left">
-						<span class="top-nav--logo-wdc">TeamNumber#3</span>
-					</h3>
+							<span class="top-nav--logo-wdc">TeamNumber#3</span>
+						</h3>
+					</div>
 				</div>
-			</div> -->
+-->
 			<div class="row header">
 				<div class="container">
 					<div
@@ -110,7 +112,8 @@ footer {
 										placeholder="<fmt:message key="application.input.placeHolder"/>"
 										class="content form-control" id="txt_Content1"></textarea>
 									<div class="text-right inputFootnote" id="wordCount1">
-										<span class="wordsCount" id="wordCountTxt1"></span> <span class="small"></span>
+										<span class="wordsCount" id="wordCountTxt1"></span> <span
+											class="small"></span>
 										<fmt:message key="application.label.words" />
 										</span>
 									</div>
@@ -123,7 +126,8 @@ footer {
 							</div>
 							<div class="form-group row buttons-container">
 								<div class="col-lg-4 col-xs-4">
-									<button type="button" class="btn btn-block clear-btn" id="btn_Clear1">
+									<button type="button" class="btn btn-block clear-btn"
+										id="btn_Clear1">
 										<fmt:message key="application.input.clear" />
 									</button>
 								</div>
@@ -139,12 +143,13 @@ footer {
 							</div>
 						</div>
 						<div style="display: none;" class="results">
+							<!-- 
 							<h2>
 								<fmt:message key="application.label.yourPersonality" />
 								*
 							</h2>
 							<div class="well">
-								<div class="summary-div" id="txt_Summary1"></div>
+								<div class="summary-div"></div>
 								<div style="color: gray" class="text-right">
 									<em class="small">*<fmt:message
 											key="application.label.comparedFootnote" /></em>
@@ -153,6 +158,7 @@ footer {
 									<em class="small outputWordCountMessage"></em>
 								</div>
 							</div>
+							-->
 						</div>
 					</div>
 					<div style="display: none;" class="results">
@@ -162,16 +168,16 @@ footer {
 									<fmt:message
 										key="application.label.personalityVisualizationData" />
 								</h3>
-								<div id="vizcontainer" class="well"></div>
+								<div id="vizcontainer1" class="well"></div>
 							</div>
-							<!-- 
-							<div class="col-lg-5 col-md-12 col-xs-12">
+						</div>
+						<div class="row">
+							<div class="col-lg-12 col-md-12 col-xs-12">
 								<h3>
 									<fmt:message key="application.label.personalityData" />
 								</h3>
 								<div style="display: none;" class="col555px well traits"></div>
 							</div>
-							-->
 						</div>
 					</div>
 					<div class="hidden">
@@ -209,8 +215,7 @@ footer {
 
 			<div class="col-sm-2">
 				<label class="col-lg-12 col-md-6 col-xs-6 control-label"><fmt:message
-						key="application.label.chooseLanguage" />:</label> </br>
-				</br>
+						key="application.label.chooseLanguage" />:</label> </br> </br>
 				<div class="col-lg-12 col-md-6 col-xs-6 sample-radio-list">
 					<div class="sample-radio-container">
 						<label><input id="english_radio" type="radio"
@@ -245,7 +250,8 @@ footer {
 										placeholder="<fmt:message key="application.input.placeHolder"/>"
 										class="content form-control" id="txt_Content2"></textarea>
 									<div class="text-right inputFootnote" id="wordCount2">
-										<span class="wordsCount" id="wordCountTxt2"></span> <span class="small"></span>
+										<span class="wordsCount" id="wordCountTxt2"></span> <span
+											class="small"></span>
 										<fmt:message key="application.label.words" />
 										</span>
 									</div>
@@ -258,7 +264,8 @@ footer {
 							</div>
 							<div class="form-group row buttons-container">
 								<div class="col-lg-4 col-xs-4">
-									<button type="button" class="btn btn-block clear-btn" id="btn_Clear2">
+									<button type="button" class="btn btn-block clear-btn"
+										id="btn_Clear2">
 										<fmt:message key="application.input.clear" />
 									</button>
 								</div>
@@ -274,12 +281,13 @@ footer {
 							</div>
 						</div>
 						<div style="display: none;" class="results">
+							<!-- 
 							<h2>
 								<fmt:message key="application.label.yourPersonality" />
 								*
 							</h2>
 							<div class="well">
-								<div class="summary-div" id="txt_Summary2"></div>
+								<div class="summary-div1"></div>
 								<div style="color: gray" class="text-right">
 									<em class="small">*<fmt:message
 											key="application.label.comparedFootnote" /></em>
@@ -288,6 +296,7 @@ footer {
 									<em class="small outputWordCountMessage"></em>
 								</div>
 							</div>
+							 -->
 						</div>
 					</div>
 					<div style="display: none;" class="results">
@@ -297,16 +306,16 @@ footer {
 									<fmt:message
 										key="application.label.personalityVisualizationData" />
 								</h3>
-								<div id="vizcontainer" class="well"></div>
+								<div id="vizcontainer2" class="well"></div>
 							</div>
-							<!--
+						</div>
+						<div class="row">
 							<div class="col-lg-12 col-md-12 col-xs-12">
 								<h3>
 									<fmt:message key="application.label.personalityData" />
 								</h3>
-								<div style="display: none;" class="col555px well traits"></div>
+								<div style="display: none;" class="col555px well traits1"></div>
 							</div>
-							 -->
 						</div>
 					</div>
 					<div class="hidden">

@@ -18,19 +18,20 @@
 $(document).ready(function() {
   var MIN_WORDS = 100;
   
-  var widgetId = 'vizcontainer', // Must match the ID in index.jade
+  var widgetId1 = 'vizcontainer1', // Must match the ID in index.jade
+  	widgetId2 = 'vizcontainer2',
     widgetWidth = 700, widgetHeight = 700, // Default width and height
     personImageUrl = 'images/app.png', // Can be blank
     language = 'en'; // language selection
 
   // Jquery variables
-//  var $content = $('.content'),
   var $content1 = $('#txt_Content1'),
       $content2 = $('#txt_Content2'),
     $loading   = $('.loading'),
     $error     = $('.error'),
     $errorMsg  = $('.errorMsg'),
     $traits    = $('.traits'),
+    $traits1    = $('.traits1'),
     $results   = $('.results');
 
   /**
@@ -102,8 +103,8 @@ $(document).ready(function() {
         	console.log(response);
           $results.show();
           showTraits(response);
-          showTextSummary(response);
-          showVizualization(response);
+          //showTextSummary(response);
+          showVizualization(response, widgetId1);
         }
 
       },
@@ -117,6 +118,40 @@ $(document).ready(function() {
         showError(error.error || error);
       }
     });
+    
+    $.ajax({
+        type: 'POST',
+        data: {
+          text: $content2.val(), //here, we need to add another ajax call. I use first person text to make things work for now -crystal
+          language: language
+        },
+        url: 'demo',
+        dataType: 'json',
+        success: function(response) {
+          $loading.hide();
+
+          if (response.error) {
+            showError(response.error);
+          } else {
+          	console.log(response);
+            $results.show();
+            showTraits1(response);
+            //showTextSummary(response);
+            showVizualization(response, widgetId2);
+          }
+
+        },
+        error: function(xhr) {
+          $loading.hide();
+
+          var error;
+          try {
+            error = JSON.parse(xhr.responseText || {});
+          } catch(e) {}
+          showError(error.error || error);
+        }
+      });
+    
   });
 
   /**
@@ -176,21 +211,65 @@ $(document).ready(function() {
       }
     }
   }
+  
+  function showTraits1(data) {
+	    console.log('showTraits()');
+	    $traits1.show();
+
+	    var traitList = flatten(data.tree),
+	      table = $traits1;
+
+	    table.empty();
+
+	    // Header
+	    $('#header-template').clone().appendTo(table);
+
+	    // For each trait
+	    for (var i = 0; i < traitList.length; i++) {
+	      var elem = traitList[i];
+
+	      var Klass = 'row';
+	      Klass += (elem.title) ? ' model_title' : ' model_trait';
+	      Klass += (elem.value === '') ? ' model_name' : '';
+
+	      if (elem.value !== '') { // Trait child name
+	        $('#trait-template').clone()
+	          .attr('class', Klass)
+	          .find('.tname')
+	          .find('span').html(elem.id).end()
+	          .end()
+	          .find('.tvalue')
+	            .find('span').html(elem.value === '' ?  '' : (elem.value + ' (± '+ elem.sampling_error+')'))
+	            .end()
+	          .end()
+	          .appendTo(table);
+	      } else {
+	        // Model name
+	        $('#model-template').clone()
+	          .attr('class', Klass)
+	          .find('.col-lg-12')
+	          .find('span').html(elem.id).end()
+	          .end()
+	          .appendTo(table);
+	      }
+	    }
+	  }
+  
 
   /**
    * Construct a text representation for big5 traits crossing, facets and
    * values.
    */
   function showTextSummary(data) {
-    console.log('showTextSummary()');
-    var paragraphs = textSummary.assemble(data.tree);
-    var div = $('.summary-div');
-    $('.outputWordCountMessage').text(data.word_count_message ? '**' + data.word_count_message + '.' : ''); 
-    div.empty();
-    paragraphs.forEach(function(sentences) {
-      $('<p></p>').text(sentences.join(' ')).appendTo(div);
-    });
-  }
+	    console.log('showTextSummary()');
+	    var paragraphs = textSummary.assemble(data.tree);
+	    var div = $('.summary-div');
+	    $('.outputWordCountMessage').text(data.word_count_message ? '**' + data.word_count_message + '.' : ''); 
+	    div.empty();
+	    paragraphs.forEach(function(sentences) {
+	      $('<p></p>').text(sentences.join(' ')).appendTo(div);
+	    });
+	  }
 
 /**
  * Renders the sunburst visualization. The parameter is the tree as returned
@@ -198,7 +277,7 @@ $(document).ready(function() {
  * It uses the arguments widgetId, widgetWidth, widgetHeight and personImageUrl
  * declared on top of this script.
  */
-function showVizualization(theProfile) {
+function showVizualization(theProfile, widgetId) {
   console.log('showVizualization()');
 
   $('#' + widgetId).empty();
