@@ -60,15 +60,6 @@ footer {
 <body>
 	<div class="row service-container">
 		<div class="col-lg-12 service-header">
-			<!-- 			
-				<div class="row top-nav navbar-fixed-top">
-				<div class="container">
-					<h3 class="heading left">
-							<span class="top-nav--logo-wdc">TeamNumber#3</span>
-						</h3>
-					</div>
-				</div>
--->
 			<div class="row header">
 				<div class="container">
 					<div
@@ -108,6 +99,12 @@ footer {
 						<div class="well">
 							<div class="form-group row">
 								<div style="padding: 0px;" class="col-lg-12 col-xs-12">
+									<div class="text-left small" id="inputTxt1">
+										<b><fmt:message key="application.label.input" />
+										1:
+										</b>
+									</div>
+									<br>
 									<textarea rows="12" required="true" name="text"
 										placeholder="<fmt:message key="application.input.placeHolder"/>"
 										class="content form-control" id="txt_Content1"></textarea>
@@ -115,7 +112,6 @@ footer {
 										<span class="wordsCount" id="wordCountTxt1"></span> <span
 											class="small"></span>
 										<fmt:message key="application.label.words" />
-										</span>
 									</div>
 								</div>
 							</div>
@@ -134,7 +130,7 @@ footer {
 							</div>
 						</div>
 					</div>
-					</br>
+					<br>
 					<div class="col-lg-12 col-md-12 col-xs-12">
 						<div style="display: none;" class="form-group row error">
 							<h2>&nbsp;</h2>
@@ -146,7 +142,7 @@ footer {
 						
 							<h2>
 								<fmt:message key="application.label.yourPersonality" />
-								*
+								1
 							</h2>
 							<div class="well">
 								<div class="summary-div" id="summary1"></div>
@@ -165,16 +161,17 @@ footer {
 						<div class="row">
 							<div class="col-lg-12 col-xs-12 col-md-12">
 								<h3>
-									<fmt:message
-										key="application.label.personalityVisualizationData" />
+									<fmt:message key="application.label.personalityVisualizationData" />
+									1
 								</h3>
-								<div id="vizcontainer1" class="well"></div>
+								<div id="vizcontainer1" class="results"></div>
 							</div>
 						</div>
 						<div class="row">
 							<div class="col-lg-12 col-md-12 col-xs-12">
 								<h3>
 									<fmt:message key="application.label.personalityData" />
+									1
 								</h3>
 								<div style="display: none;" class="col555px well traits"></div>
 							</div>
@@ -215,7 +212,7 @@ footer {
 
 			<div class="col-sm-2">
 				<label class="col-lg-12 col-md-6 col-xs-6 control-label"><fmt:message
-						key="application.label.chooseLanguage" />:</label> </br> </br>
+						key="application.label.chooseLanguage" />:</label> <br> <br>
 				<div class="col-lg-12 col-md-6 col-xs-6 sample-radio-list">
 					<div class="sample-radio-container">
 						<label><input id="english_radio" type="radio"
@@ -246,6 +243,12 @@ footer {
 						<div class="well">
 							<div class="form-group row">
 								<div style="padding: 0px;" class="col-lg-12 col-xs-12">
+									<div class="text-left small" id="inputTxt2">
+										<b><fmt:message key="application.label.input" />
+										2:
+										</b>
+									</div>
+									<br>
 									<textarea rows="12" required="true" name="text"
 										placeholder="<fmt:message key="application.input.placeHolder"/>"
 										class="content form-control" id="txt_Content2"></textarea>
@@ -253,7 +256,6 @@ footer {
 										<span class="wordsCount" id="wordCountTxt2"></span> <span
 											class="small"></span>
 										<fmt:message key="application.label.words" />
-										</span>
 									</div>
 								</div>
 							</div>
@@ -272,7 +274,7 @@ footer {
 							</div>
 						</div>
 					</div>
-					</br>
+					<br>
 					<div class="col-lg-12 col-md-12 col-xs-12">
 						<div style="display: none;" class="form-group row error">
 							<h2>&nbsp;</h2>
@@ -284,7 +286,7 @@ footer {
 							
 							<h2>
 								<fmt:message key="application.label.yourPersonality" />
-								*
+								2
 							</h2>
 							<div class="well">
 								<div class="summary-div1" id="summary2"></div>
@@ -305,14 +307,16 @@ footer {
 								<h3>
 									<fmt:message
 										key="application.label.personalityVisualizationData" />
+										2
 								</h3>
-								<div id="vizcontainer2" class="well"></div>
+								<div id="vizcontainer2" class="results"></div>
 							</div>
 						</div>
 						<div class="row">
 							<div class="col-lg-12 col-md-12 col-xs-12">
 								<h3>
 									<fmt:message key="application.label.personalityData" />
+									2
 								</h3>
 								<div style="display: none;" class="col555px well traits1"></div>
 							</div>
